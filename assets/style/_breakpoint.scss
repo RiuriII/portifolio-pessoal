@@ -1,3 +1,5 @@
+@use './mixins' as *;
+
 @media (max-width: 650px) {
     header {
         .navbar {
@@ -46,7 +48,7 @@
                 transition: .5s ease-in-out;
                 z-index: 999;
     
-               li {
+                li {
                     margin: 1rem 0;
 
                     &:nth-of-type(1) {
@@ -117,4 +119,4 @@
         }
     }
 
-}
+} 
