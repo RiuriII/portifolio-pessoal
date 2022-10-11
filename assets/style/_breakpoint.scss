@@ -96,6 +96,10 @@
     }
 
     #about {
+        .profile-card {
+            display: none;
+        }
+
         .text-about {
             padding: 16px;
         }
@@ -108,6 +112,10 @@
                 max-width: 400px;
                 min-height: 300px;
                 height: auto;
+
+                &[data-anime="top"] {
+                    transition-delay: 0;
+                }
             }
         }
     }
