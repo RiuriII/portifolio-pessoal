@@ -27,16 +27,27 @@ btnMobile.addEventListener('touch', openMenu)
 
 // active menu link
 
-navbarLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        resetLinks()
-        link.classList.add('active')
-    })
-})
+const allSection = document.querySelectorAll('section[id]')
 
-function resetLinks() {
-    navbarLinks.forEach(link => link.classList.remove('active'));
-}
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY
+  allSection.forEach( (current) => {
+    const sectionHeight = current.offsetHeight
+    const sectionTop = current.offsetTop - 200;
+    const sectionId = current.getAttribute('id')
+
+    if (scrollY > sectionTop && scrollY < sectionTop + sectionHeight) {
+        document
+        .querySelector(`#menu a[href*="${sectionId}"]`)
+        .classList.add('active')
+
+    } else {
+      document
+      .querySelector(`#menu a[href*="${sectionId}"]`)
+      .classList.remove('active')
+    }
+  })
+})
 
 //typewriter animation
 
