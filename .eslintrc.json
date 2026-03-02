@@ -20,7 +20,7 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react", "react-hooks", "eslint-plugin-import-helpers"
+        "react", "react-hooks"
     ],
     "rules": {
         "react-hooks/rules-of-hooks": "error",
