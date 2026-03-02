@@ -2,6 +2,10 @@
 
 Um portfólio profissional moderno e responsivo construído com Next.js, apresentando projetos, habilidades e informações de contato com animações elegantes.
 
+## 🎬 Prévia
+
+![Prévia do Portfólio](./public/port-screenshot.png)
+
 ## ✨ Características
 
 - 🎨 **Design Moderno**: Interface limpa e profissional com Tailwind CSS
@@ -28,27 +32,51 @@ Um portfólio profissional moderno e responsivo construído com Next.js, apresen
 ## 📋 Estrutura do Projeto
 
 ```
-src/
-├── app/
-│   ├── globals.css           # Estilos globais
-│   ├── layout.jsx            # Layout raiz
-│   ├── page.jsx              # Página inicial
-│   └── not-found.jsx         # Página 404
-├── components/
-│   ├── aboutSection/         # Seção sobre e habilidades
-│   ├── contactSection/       # Seção de contato
-│   ├── footer/               # Rodapé
-│   ├── homeSection/          # Hero section
-│   ├── navbar/               # Navegação
-│   ├── projectsSection/      # Portfólio de projetos
-│   ├── maxWidthWrapper/      # Wrapper container
-│   └── reveal/               # Componente de animação
-├── hooks/
-│   └── useGetWidth.jsx       # Hook para detectar largura
-├── lib/
-│   └── utils.js              # Funções utilitárias
-└── lottie/
-    └── plane.json            # Animação Lottie
+portifolio-pessoal/
+├── public/
+│   ├── images/               # Imagens e ícones
+├── src/
+│   ├── app/
+│   │   ├── globals.css       # Estilos globais
+│   │   ├── layout.jsx        # Layout raiz
+│   │   ├── page.jsx          # Página inicial
+│   │   └── not-found.jsx     # Página 404
+│   ├── components/
+│   │   ├── aboutSection/
+│   │   │   └── AboutSection.jsx       # Seção sobre e habilidades
+│   │   ├── contactSection/
+│   │   │   └── ContactSection.jsx     # Seção de contato
+│   │   ├── footer/
+│   │   │   └── Footer.jsx             # Rodapé
+│   │   ├── homeSection/
+│   │   │   └── HomeSection.jsx        # Hero section
+│   │   ├── navbar/
+│   │   │   └── Navbar.jsx             # Navegação
+│   │   ├── projectsSection/
+│   │   │   ├── ProjectsSection.jsx    # Container de projetos
+│   │   │   ├── Card.jsx               # Card individual do projeto
+│   │   │   └── ActionButtons.jsx      # Botões de ação
+│   │   ├── maxWidthWrapper/
+│   │   │   └── MaxWidthWrapper.jsx    # Wrapper container
+│   │   └── reveal/
+│   │       └── Reveal.jsx             # Componente de animação
+│   ├── hooks/
+│   │   ├── useActiveSection.jsx       # Hook para seção ativa
+│   │   └── useGetWidth.jsx            # Hook para detectar largura
+│   ├── lib/
+│   │   └── utils.js                   # Funções utilitárias
+│   └── lottie/
+│       └── plane.json                 # Animação Lottie
+├── .eslintrc.json             # Configuração ESLint
+├── .prettierrc                # Configuração Prettier
+├── jsconfig.json              # Configuração JavaScript
+├── next.config.mjs            # Configuração Next.js
+├── postcss.config.mjs         # Configuração PostCSS
+├── tailwind.config.js         # Configuração Tailwind CSS
+├── package.json               # Dependências
+├── package-lock.json          # Lock das dependências
+├── LICENSE                    # Licença do projeto
+└── README.md                  # Este arquivo
 ```
 
 ## 🚀 Como Começar
