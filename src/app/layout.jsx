@@ -52,6 +52,9 @@ export const metadata = {
   // Canonical
   alternates: {
     canonical: "https://riuridev.com"
+  },
+  verification: {
+    google: "T01b17nlXVW3YVVsNa54ejD6WSpHfyxZZ7iMWvJAhN8"
   }
 };
 
