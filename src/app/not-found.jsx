@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <main
       aria-labelledby="not-found-heading"
-      className="relative flex min-h-dvh w-full items-center justify-center overflow-hidden bg-blue px-8 py-16"
+      className="relative flex min-h-dvh w-full items-center justify-center overflow-hidden bg-blue px-8 max-[360px]:px-6 py-16"
     >
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.04]"

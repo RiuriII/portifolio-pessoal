@@ -77,28 +77,28 @@ const PROJECTS_DATA = [
         url: "https://github.com/RiuriII/ThunderX"
       }
     ],
-    class: "origin-center scale-100"
+    class: "object-cover origin-center scale-110 max-md:scale-100"
   },
   {
-    title: "Casecobra",
+    title: "Miaw Café",
     description:
-      "CaseCobra é uma loja e-commerce completa desenvolvida do zero usando o Next.js  App Router, Postgres, TypeScript, Tailwind e Kinde Auth",
-    imageSrc: "/images/cobracase_mockup.png",
-    imageDescription:
+      "Miaw Café é uma landing page de alta fidelidade com direção de arte marcante, grids assimétricos, tipografia oversized e texturas sutis, tudo sustentado por uma hierarquia visual bem construída. O resultado é uma interface moderna e funcional, responsiva e pronta para produção.",
+    imageSrc: "/images/miawcafe_mockup.png",
+    imageDescription: 
       "Mockup da loja Casecobra com interface moderna e responsiva",
     buttons: [
       {
         text: "Demo",
         type: "demo",
-        url: "https://cobracase-liard.vercel.app/"
+        url: "https://miaw-cafe.netlify.app/"
       },
       {
         text: "GitHub",
         type: "git",
-        url: "https://github.com/RiuriII/cobracase"
+        url: "https://github.com/RiuriII/miaw_cafe"
       }
     ],
-    class: "origin-center scale-150"
+    class: "object-cover origin-center scale-110 max-md:scale-100"
   },
 
   {
@@ -143,7 +143,7 @@ const ProjectsSection = async () => {
       </div>
 
       {/* ── Section Header ── */}
-      <div className="relative z-20 mb-16 w-full max-w-5xl px-8 md:px-16">
+      <div className="relative z-20 mb-16 w-full max-w-5xl px-8 max-[360px]:px-6 md:px-16">
         <div className="flex items-center gap-3" aria-hidden="true">
           <span className="h-px w-10 bg-purple-400" />
           <span className="text-sm font-medium uppercase tracking-[0.2em] text-purple-300">
@@ -163,7 +163,7 @@ const ProjectsSection = async () => {
       </div>
 
       {/* ── Project list ── */}
-      <ol className="relative z-20 flex w-full max-w-5xl flex-col gap-24 px-8 md:px-16">
+      <ol className="relative z-20 flex w-full max-w-5xl flex-col gap-24 px-8 max-[360px]:px-6 md:px-16">
         {PROJECTS_DATA.map((project, index) => (
           <Reveal key={index}>
             <li

@@ -40,7 +40,7 @@ const AboutSection = () => {
         <div className="bg-blue-100/40 absolute -left-32 bottom-0 h-[400px] w-[400px] rounded-full blur-3xl" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-5xl px-8 md:px-16">
+      <div className="relative z-10 mx-auto max-w-5xl px-8 max-[360px]:px-6 md:px-16">
         <div className="grid items-center gap-16 md:grid-cols-2">
           {/* Left: text */}
           <div>

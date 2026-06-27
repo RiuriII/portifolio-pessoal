@@ -15,10 +15,10 @@ const ContactSection = () => {
   const [isCopied, setIsCopied] = useState(false);
 
   const clipboardEmail = async () => {
+    setIsCopied(true);
+    setTimeout(() => setIsCopied(false), 1800);
     try {
       await navigator.clipboard.writeText(EMAIL);
-      setIsCopied(true);
-      setTimeout(() => setIsCopied(false), 1800);
     } catch {
       // fallback for older browsers
       const textarea = document.createElement("textarea");
@@ -27,6 +27,7 @@ const ContactSection = () => {
       textarea.select();
       document.execCommand("copy");
       document.body.removeChild(textarea);
+     
     }
   };
 
@@ -42,7 +43,7 @@ const ContactSection = () => {
         <div className="bg-blue-100/30 absolute -right-32 bottom-0 h-[400px] w-[400px] rounded-full blur-3xl" />
       </div>
 
-      <div className="relative z-10 flex w-full items-center gap-8 px-8 max-md:flex-col md:px-16">
+      <div className="relative z-10 flex w-full items-center gap-8 px-8 max-[360px]:px-6 max-md:flex-col md:px-16">
         {/* Lottie plane */}
         <div className="relative flex h-[500px] w-full items-center justify-center overflow-hidden max-md:h-[280px]">
           <Suspense fallback={null}>
@@ -120,9 +121,9 @@ const ContactSection = () => {
                 }
                 className="group flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-purple-50 transition-colors hover:bg-purple-100"
               >
-                {/* eslint-disable-next-line jsx-a11y/alt-text*/}
                 <Image
                   src="/images/copy.svg"
+                  alt="Ícone de copiar e-mail"
                   aria-hidden="true"
                   width={20}
                   height={20}
