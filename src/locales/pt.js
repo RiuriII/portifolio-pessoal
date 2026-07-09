@@ -58,7 +58,7 @@ export const pt = {
 		paragraph2: "Gosto de transformar ideias em aplicações funcionais, buscando soluções simples e bem estruturadas para problemas reais. Meu foco é construir aplicações",
 		paragraph2Highlight1: "responsivas",
 		paragraph2Highlight2: "acessíveis",
-		paragraph2Continue: "e com as melhores práticas de",
+		paragraph2Continue: " e com as melhores práticas de",
 		paragraph2Highlight3: "SEO",
 		infoItens: {
 			focus: "Foco",
