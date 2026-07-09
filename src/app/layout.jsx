@@ -4,6 +4,9 @@ import "./globals.css";
 import Footer from "@/components/footer/Footer";
 import { Analytics } from "@vercel/analytics/next"
 
+import { cookies } from "next/headers";
+import { LanguageProvider } from "@/locales/languageContext";
+
 const inter = Inter({ subsets: ['latin'], display: 'swap', preload: true });
 
 export const metadata = {
@@ -80,10 +83,13 @@ export const generatePersonJsonLd = () => {
   };
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
   const personJsonLd = generatePersonJsonLd();
+  const cookieStore = await cookies();
+  const langCode = cookieStore.get("language")?.value == "en" ? "en" : "pt";
+
   return (
-    <html lang="pt-BR" className="scroll-smooth">
+    <html lang={langCode} className="scroll-smooth">
       <body className={inter.className}>
         <script
           type="application/ld+json"
@@ -91,9 +97,11 @@ export default function RootLayout({ children }) {
             __html: JSON.stringify(personJsonLd)
           }}
         />
-        <main>{children}</main>
-        <Footer />
-        <Analytics />
+        <LanguageProvider initialLang={langCode}>
+          <main>{children}</main>
+          <Footer />
+          <Analytics />
+        </LanguageProvider>
       </body>
     </html>
   );
