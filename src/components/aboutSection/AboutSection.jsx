@@ -3,6 +3,7 @@ import Image from "next/image";
 
 import { fadeUp } from "@/lib/utils";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/locales/languageContext";
 
 const SKILLS = [
   { name: "HTML", icon: "/images/html.svg" },
@@ -17,17 +18,21 @@ const SKILLS = [
   { name: "Sass", icon: "/images/sass.svg" }
 ];
 
-const INFO_ITEMS = [
-  { label: "Foco", value: "Front-end & Back-end" },
-  { label: "Stack principal", value: "React · Next.js · Node" },
-  {
-    label: "Diferenciais",
-    value: "SEO · Acessibilidade · Performance"
-  },
-  { label: "Abordagem", value: "Clean code · Boas práticas" }
-];
 
 const AboutSection = () => {
+  
+  const { lang } = useLanguage();
+
+  const INFO_ITEMS = [
+    { label: lang.about.infoItens.focus, value: lang.about.infoItens.focusValue },
+    { label: lang.about.infoItens.stack, value: lang.about.infoItens.stackValue },
+    {
+      label: lang.about.infoItens.differentials,
+      value: lang.about.infoItens.differentialsValue
+    },
+    { label: lang.about.infoItens.approach, value: lang.about.infoItens.approachValue }
+  ];
+
   return (
     <section
       className="relative min-h-[calc(100vh-5rem)] w-full scroll-mt-20 overflow-hidden bg-slate-50 py-24"
@@ -51,7 +56,7 @@ const AboutSection = () => {
             >
               <span className="h-px w-10 bg-purple-500" />
               <span className="text-sm font-medium uppercase tracking-[0.2em] text-purple-500">
-                Sobre mim
+                {lang.about.eyebrow}
               </span>
             </motion.div>
 
@@ -60,9 +65,9 @@ const AboutSection = () => {
               className="text-[clamp(2rem,5vw,3.5rem)] font-black leading-none tracking-tight text-slate-900"
               id="about-heading"
             >
-              Quem sou
+              {lang.about.title}
               <span className="text-purple-500" aria-hidden="true">
-                .
+                {lang.about.titleHighlight}
               </span>
             </motion.h2>
 
@@ -83,23 +88,20 @@ const AboutSection = () => {
               {...fadeUp(0.4)}
               className="text-base leading-8 text-slate-600"
             >
-              Desenvolvedor focado na construção de interfaces modernas com{" "}
-              <span className="font-semibold text-slate-900">React</span> e{" "}
-              <span className="font-semibold text-slate-900">Next.js</span>, com
-              experiência também no desenvolvimento de APIs e base de dados.
+              {lang.about.paragraph1}{" "}
+              <span className="font-semibold text-slate-900">{lang.about.paragraph1Highlight1}</span> {lang.about.paragraph1Conjunction}{" "}
+              <span className="font-semibold text-slate-900">{lang.about.paragraph1Highlight2}</span>{lang.about.paragraph1End}
             </motion.p>
 
             <motion.p
               {...fadeUp(0.5)}
               className="mt-4 text-base leading-8 text-slate-600"
             >
-              Gosto de transformar ideias em aplicações funcionais, buscando
-              soluções simples e bem estruturadas para problemas reais. Meu foco
-              é construir aplicações{" "}
-              <span className="font-semibold text-slate-900">responsivas</span>,{" "}
-              <span className="font-semibold text-slate-900">acessíveis</span> e
-              com as melhores práticas de{" "}
-              <span className="font-semibold text-slate-900">SEO</span>.
+              {lang.about.paragraph2}{" "}
+              <span className="font-semibold text-slate-900">{lang.about.paragraph2Highlight1}</span>,{" "}
+              <span className="font-semibold text-slate-900">{lang.about.paragraph2Highlight2}</span>
+              {lang.about.paragraph2Continue}{" "}
+              <span className="font-semibold text-slate-900">{lang.about.paragraph2Highlight3}</span>.
             </motion.p>
           </div>
 
@@ -155,9 +157,9 @@ const AboutSection = () => {
             className="text-[clamp(2rem,5vw,3.5rem)] font-black leading-none tracking-tight text-slate-900"
             id="skills-heading"
           >
-            Tecnologias
+            {lang.about.skillSet.title}
             <span className="text-purple-500" aria-hidden="true">
-              .
+              {lang.about.skillSet.titleHighlight}
             </span>
           </motion.h3>
 

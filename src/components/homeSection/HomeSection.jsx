@@ -4,6 +4,9 @@ import Link from "next/link";
 
 import { motion } from "framer-motion";
 import { TerminalCard } from "../terminalCard/TerminalCard";
+import { ResumeDropdown } from "../resumeDropdown/ResumeDropdown";
+import { useLanguage } from "@/locales/languageContext";
+
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
@@ -11,20 +14,24 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1], delay }
 });
 
-const SOCIAL_LINKS = [
-  {
-    href: "https://www.linkedin.com/in/riuri-alves-boneta/",
-    src: "/images/linkedin.svg",
-    alt: "LinkedIn de Riuri Boneta (abre em nova aba)"
-  },
-  {
-    href: "https://github.com/RiuriII",
-    src: "/images/github.svg",
-    alt: "GitHub de Riuri Boneta (abre em nova aba)"
-  }
-];
 
 const HomeSection = () => {
+  
+  const { lang } = useLanguage();
+  
+  const SOCIAL_LINKS = [
+    {
+      href: "https://www.linkedin.com/in/riuri-alves-boneta/",
+      src: "/images/linkedin.svg",
+      alt: lang.home.socialLinks.linkedInAlt
+    },
+    {
+      href: "https://github.com/RiuriII",
+      src: "/images/github.svg",
+      alt: lang.home.socialLinks.githubAlt
+    }
+  ];
+
   return (
     <section
       id="home"
@@ -64,7 +71,7 @@ const HomeSection = () => {
             className="text-xl font-light text-white/60"
             aria-hidden="true"
           >
-            Olá, eu sou
+            {lang.home.hero.greeting}
           </motion.p>
 
           <motion.h1
@@ -73,12 +80,12 @@ const HomeSection = () => {
             className="mt-1 text-[clamp(3rem,8vw,7rem)] font-black uppercase leading-none tracking-tight text-white"
           >
             <span>
-              Riuri
+              {lang.home.hero.firstName}
               <span
                 className="ml-4 text-[clamp(3rem,8vw,7rem)] font-black uppercase leading-none text-purple-400"
                 aria-hidden="true"
               >
-                Boneta
+                {lang.home.hero.lastName}
               </span>
             </span>
           </motion.h1>
@@ -95,31 +102,14 @@ const HomeSection = () => {
             {...fadeUp(0.5)}
             className="max-w-[520px] text-xl font-light leading-relaxed text-white/70"
           >
-            Desenvolvedor Web construindo aplicações{" "}
-            <span className="font-semibold text-white">performáticas</span> e{" "}
-            <span className="font-semibold text-white">escaláveis</span>.
+            {lang.home.description.prefix}{" "}
+            <span className="font-semibold text-white">{lang.home.description.performance}</span> {lang.home.description.conjunction}{" "}
+            <span className="font-semibold text-white">{lang.home.description.scalable}</span>.
           </motion.p>
 
           {/* Links */}
           <motion.div {...fadeUp(0.65)} className="mt-10 flex items-center gap-2">
-            <Link
-              target="_blank"
-              rel="noopener noreferrer"
-              href="/resume.pdf"
-              download="riuri-boneta-cv.pdf"
-              aria-label="Baixar currículo de Riuri Boneta em PDF (abre em nova aba)"
-              className="group flex items-center gap-2 rounded-full border border-purple-400/40 bg-purple-500/10 px-5 py-2.5 text-sm font-medium text-purple-200 backdrop-blur-sm transition-all duration-300 hover:border-purple-400 hover:bg-purple-500/25 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400"
-            >
-              <Image
-                src="/images/document.svg"
-                alt=""
-                aria-hidden="true"
-                width={18}
-                height={18}
-                className="opacity-80 transition group-hover:opacity-100"
-              />
-              Currículo
-            </Link>
+            <ResumeDropdown />
 
             <div className="mx-3 h-5 w-px bg-white/20" aria-hidden="true" />
 

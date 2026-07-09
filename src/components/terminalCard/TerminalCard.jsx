@@ -2,27 +2,31 @@
 "use client";
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/locales/languageContext";
 
-const LINES = [
-  { type: "cmd", text: "npx riuri-boneta@latest" },
-  { type: "gap" },
-  { type: "out", text: "  Carregando desenvolvedor...", color: "#6b7280" },
-  { type: "gap" },
-  { type: "raw", text: "{" },
-  { type: "kv", key: "  nome",              val: '"Riuri Boneta"',                       vc: "#86efac" },
-  { type: "kv", key: "  role",              val: '"Desenvolvedor Web Full Stack"',        vc: "#86efac" },
-  { type: "kv", key: "  stack",             val: '["Next.js", "TypeScript", "Node.js", ...]', vc: "#7dd3fc" },
-  { type: "kv", key: "  disponivel",        val: "true",                                 vc: "#fb923c" },
-  { type: "kv", key: "  escreve_testes",    val: "true",                                 vc: "#fb923c" },
-  { type: "kv", key: "  lê_a_documentacao", val: "true",                                 vc: "#fb923c" },
-  { type: "raw", text: "}" },
-  { type: "gap" },
-  { type: "out", text: "  ✓ Pronto para o próximo desafio", color: "#28c840" },
-];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 export function TerminalCard() {
+  const { lang } = useLanguage();
+  
+  const LINES = [
+    { type: "cmd", text: "npx riuri-boneta@latest" },
+    { type: "gap" },
+    { type: "out", text: " " + lang.terminal.loading, color: "#6b7280" },
+    { type: "gap" },
+    { type: "raw", text: "{" },
+    { type: "kv", key: "  nome", val: '"Riuri Boneta"', vc: "#86efac" },
+    { type: "kv", key: "  role", val: `"${lang.terminal.role}"`, vc: "#86efac" },
+    { type: "kv", key: "  stack", val: '["Next.js", "TypeScript", "Node.js", ...]', vc: "#7dd3fc" },
+    { type: "kv", key: "  " + lang.terminal.available, val: "true", vc: "#fb923c" },
+    { type: "kv", key: "  " + lang.terminal.writesTests, val: "true", vc: "#fb923c" },
+    { type: "kv", key: "  " + lang.terminal.readsDocumentation, val: "true", vc: "#fb923c" },
+    { type: "raw", text: "}" },
+    { type: "gap" },
+    { type: "out", text: lang.terminal.ready, color: "#28c840" },
+  ];
+  
   const bodyRef = useRef(null);
 
   useEffect(() => {

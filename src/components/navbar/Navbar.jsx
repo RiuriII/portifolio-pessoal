@@ -4,18 +4,23 @@ import { useState, useEffect, useCallback } from "react";
 
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/locales/languageContext";
 
-const LINKS = [
-  { name: "Home", url: "home" },
-  { name: "Sobre Mim", url: "about" },
-  { name: "Projetos", url: "projects" },
-  { name: "Contato", url: "contact" }
-];
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const { lang } = useLanguage();
 
+  const LINKS = [
+    { name: lang.navbar.links.home, url: "home" },
+    { name: lang.navbar.links.about, url: "about" },
+    { name: lang.navbar.links.projects, url: "projects" },
+    { name: lang.navbar.links.contact, url: "contact" }
+  ];
+
+  const [isOpen, setIsOpen] = useState(false);
+  
   const activeLink = useActiveSection(LINKS.map((l) => l.url));
+  
 
   useEffect(() => {
     if (isOpen) {
@@ -48,16 +53,16 @@ const Navbar = () => {
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-white focus:px-4 focus:py-2 focus:text-black focus:outline-none"
       >
-        Pular para o conteúdo principal
+        {lang.navbar.skipToContent}
       </a>
       <nav
         className="flex h-20 w-full items-center justify-between px-4 py-2"
-        aria-label="Barra de navegação principal"
+        aria-label={lang.navbar.navAriaLabel}
       >
         <Link
           href="#home"
           className="group flex items-center gap-1 text-xl font-black uppercase tracking-tight text-white"
-          aria-label="Riuri Dev — Ir para o início"
+          aria-label={lang.navbar.logoAriaLabel}
         >
           Riuri
           <span className="text-purple-400 transition-colors group-hover:text-purple-300">
@@ -73,7 +78,7 @@ const Navbar = () => {
           onClick={toggleMenu}
           className="text-white focus:text-purple-400 focus:outline-none md:hidden"
           aria-label={
-            isOpen ? "Fechar menu de navegação" : "Abrir menu de navegação"
+            isOpen ? lang.navbar.closeMenu : lang.navbar.openMenu
           }
           aria-expanded={isOpen}
           aria-controls="mobile-menu"
@@ -96,14 +101,14 @@ const Navbar = () => {
         {/* Desktop links */}
         <ul
           className="hidden space-x-6 md:flex"
-          aria-label="Links de navegação"
+          aria-label={lang.navbar.linksAriaLabel}
         >
           {LINKS.map((link, index) => (
             <li key={link.url + index}>
               <Link
                 className="group relative flex flex-col items-center px-2 py-4 text-xl font-medium text-slate-50 transition-colors hover:text-slate-300"
                 href={`#${link.url}`}
-                aria-label={`Navegar para a seção ${link.name}`}
+                aria-label={`${lang.navbar.navigateTo} ${link.name}`}
                 aria-current={activeLink === link.url ? "true" : undefined}
               >
                 {link.name}
@@ -139,7 +144,7 @@ const Navbar = () => {
             <ul
               className="flex flex-col space-y-2 p-4 pt-8"
               role="list"
-              aria-label="Menu de navegação mobile"
+              aria-label={lang.navbar.mobileLinksAriaLabel}
             >
               {LINKS.map((link, index) => (
                 <motion.li
@@ -160,7 +165,7 @@ const Navbar = () => {
                     }`}
                     href={`#${link.url}`}
                     onClick={toggleMenu}
-                    aria-label={`Navegar para a seção ${link.name}`}
+                    aria-label={`${lang.navbar.navigateTo} ${link.name}`}
                   >
                     <motion.span
                       className="h-1.5 w-1.5 shrink-0 rounded-full bg-purple-400"

@@ -4,6 +4,7 @@ import Reveal from "../reveal/Reveal";
 import Card from "./Card";
 
 import { cn } from "@/lib/utils";
+import { getServerLang } from "@/locales/getServerLang";
 
 async function getDownloads() {
   let downloads = null;
@@ -40,85 +41,82 @@ async function getDownloads() {
   return downloads;
 }
 
-const PROJECTS_DATA = [
-  {
-    title: "SQL Visualizer",
-    description:
-      "Extensão para o Visual Studio Code que transforma arquivos .sql em diagramas visuais de banco de dados, facilitando a compreensão da estrutura e relacionamento entre tabelas durante o desenvolvimento.",
-    imageSrc: "/images/editor_with_sticker.png",
-    imageDescription: "Screenshot do SQL Visualizer no VS Code",
-    downloads: await getDownloads(),
-    buttons: [
-      {
-        text: "Marketplace",
-        type: "demo",
-        url: "https://marketplace.visualstudio.com/items?itemName=RiuriDev.sql-visualizer",
-        width: "w-[160px]"
-      },
-      {
-        text: "GitHub",
-        type: "git",
-        url: "https://github.com/RiuriII/sql-diagram-visualizer"
-      }
-    ]
-  },
-  {
-    title: "IGNITION Δ",
-    description:
-      "Landing page interativa desenvolvida com Next.js e Three.js, explorando a integração de elementos 3D para criar uma experiência visual mais imersiva.",
-    imageSrc: "/images/ignition_mockup.png",
-    imageDescription:
-      "Mockup da landing page IGNITION com elementos 3D e visual futurista",
-    buttons: [
-      { text: "Demo", type: "demo", url: "https://thunder-x.vercel.app/" },
-      {
-        text: "GitHub",
-        type: "git",
-        url: "https://github.com/RiuriII/ThunderX"
-      }
-    ],
-    class: "object-cover origin-center scale-110 max-md:scale-100"
-  },
-  {
-    title: "Miaw Café",
-    description:
-      "Miaw Café é uma landing page de alta fidelidade com direção de arte marcante, grids assimétricos, tipografia oversized e texturas sutis, tudo sustentado por uma hierarquia visual bem construída. O resultado é uma interface moderna e funcional, responsiva e pronta para produção.",
-    imageSrc: "/images/miawcafe_mockup.png",
-    imageDescription: 
-      "Mockup da loja Casecobra com interface moderna e responsiva",
-    buttons: [
-      {
-        text: "Demo",
-        type: "demo",
-        url: "https://miaw-cafe.netlify.app/"
-      },
-      {
-        text: "GitHub",
-        type: "git",
-        url: "https://github.com/RiuriII/miaw_cafe"
-      }
-    ],
-    class: "object-cover origin-center scale-110 max-md:scale-100"
-  },
-
-  {
-    title: "Atlas Library",
-    description:
-      "Aplicação voltada à organização de acervos, explorando regras de empréstimo, reservas e notificações, com foco na modelagem de dados e fluxos de uso dentro de um sistema de gestão.",
-    imageSrc: "/images/atlas_library.svg",
-    imageDescription: "Imagem ilustrativa da  aplicação Atlas Library",
-    buttons: [
-      {
-        text: "GitHub",
-        type: "git",
-        url: "https://github.com/RiuriII/atlas_library"
-      }
-    ],
-    class: "w-[500px] max-md:max-w-full"
-  }
-];
 
 const ProjectsSection = async () => {
+  const lang = await getServerLang();
+
+  const PROJECTS_DATA = [
+    {
+      title: lang.projectsSection.projects.sqlVisualizer.title,
+      description: lang.projectsSection.projects.sqlVisualizer.description,
+      imageSrc: "/images/editor_with_sticker.png",
+      imageDescription: lang.projectsSection.projects.sqlVisualizer.imageDescription,
+      downloads: await getDownloads(),
+      buttons: [
+        {
+          text: "Marketplace",
+          type: "demo",
+          url: "https://marketplace.visualstudio.com/items?itemName=RiuriDev.sql-visualizer",
+          width: "w-[160px]"
+        },
+        {
+          text: "GitHub",
+          type: "git",
+          url: "https://github.com/RiuriII/sql-diagram-visualizer"
+        }
+      ]
+    },
+    {
+      title: lang.projectsSection.projects.ignition.title,
+      description: lang.projectsSection.projects.ignition.description,
+      imageSrc: "/images/ignition_mockup.png",
+      imageDescription: lang.projectsSection.projects.ignition.imageDescription,
+      buttons: [
+        { text: "Demo", type: "demo", url: "https://thunder-x.vercel.app/" },
+        {
+          text: "GitHub",
+          type: "git",
+          url: "https://github.com/RiuriII/ThunderX"
+        }
+      ],
+      class: "object-cover origin-center scale-110 max-md:scale-100"
+    },
+    {
+      title: lang.projectsSection.projects.miaw.title,
+      description: lang.projectsSection.projects.miaw.description,
+      imageSrc: "/images/miawcafe_mockup.png",
+      imageDescription: lang.projectsSection.projects.miaw.imageDescription,
+      buttons: [
+        {
+          text: "Demo",
+          type: "demo",
+          url: "https://miaw-cafe.netlify.app/"
+        },
+        {
+          text: "GitHub",
+          type: "git",
+          url: "https://github.com/RiuriII/miaw_cafe"
+        }
+      ],
+      class: "object-cover origin-center scale-110 max-md:scale-100"
+    },
+  
+    {
+      title: lang.projectsSection.projects.atlasLibrary.title,
+      description: lang.projectsSection.projects.atlasLibrary.description,
+      imageSrc: "/images/atlas_library.svg",
+      imageDescription: lang.projectsSection.projects.atlasLibrary.imageDescription,
+      buttons: [
+        {
+          text: "GitHub",
+          type: "git",
+          url: "https://github.com/RiuriII/atlas_library"
+        }
+      ],
+      class: "w-[500px] max-md:max-w-full"
+    }
+  ];
+
   return (
     <section
       id="projects"
@@ -147,16 +145,16 @@ const ProjectsSection = async () => {
         <div className="flex items-center gap-3" aria-hidden="true">
           <span className="h-px w-10 bg-purple-400" />
           <span className="text-sm font-medium uppercase tracking-[0.2em] text-purple-300">
-            Projetos
+            {lang.projectsSection.header.eyebrow}
           </span>
         </div>
         <h2
           className="mt-2 text-[clamp(2rem,5vw,3.5rem)] font-black leading-none tracking-tight text-white"
           id="projects-heading"
         >
-          O que eu construí
+          {lang.projectsSection.header.title}
           <span className="text-purple-400" aria-hidden="true">
-            .
+            {lang.projectsSection.header.titleHighlight}
           </span>
         </h2>
         <div className="mt-4 h-px w-24 bg-gradient-to-r from-purple-400 to-transparent" />

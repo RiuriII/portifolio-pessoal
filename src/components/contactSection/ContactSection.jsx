@@ -6,12 +6,15 @@ import { useState, Suspense } from "react";
 import { fadeUp } from "@/lib/utils";
 import AnimatePlane from "@/lottie/plane.json";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/locales/languageContext";
 
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
 const EMAIL = "riuriboneta@gmail.com";
 
 const ContactSection = () => {
+  const { lang } = useLanguage();
+
   const [isCopied, setIsCopied] = useState(false);
 
   const clipboardEmail = async () => {
@@ -67,7 +70,7 @@ const ContactSection = () => {
           >
             <span className="h-px w-10 bg-purple-500" />
             <span className="text-sm font-medium uppercase tracking-[0.2em] text-purple-500">
-              Contato
+              {lang.contactSection.eyebrow}
             </span>
           </motion.div>
 
@@ -77,9 +80,9 @@ const ContactSection = () => {
             id="contact-heading"
             className="text-[clamp(2rem,4vw,3rem)] font-black leading-tight tracking-tight text-slate-900 max-md:text-center"
           >
-            Vamos conversar
+            {lang.contactSection.title}
             <span className="text-purple-500" aria-hidden="true">
-              .
+              {lang.contactSection.titleHighlight}
             </span>
           </motion.h2>
 
@@ -102,8 +105,7 @@ const ContactSection = () => {
             {...fadeUp(0.4)}
             className="max-w-[375px] text-base leading-7 text-slate-500 max-md:text-center"
           >
-            Aberto a oportunidades, freelas ou só uma boa conversa sobre
-            tecnologia. Me manda um e-mail!
+            {lang.contactSection.subtitle}
           </motion.p>
 
           {/* Email copy card */}
@@ -117,13 +119,13 @@ const ContactSection = () => {
                 onClick={clipboardEmail}
                 aria-describedby="copy-feedback"
                 aria-label={
-                  isCopied ? "E-mail copiado!" : "Copiar endereço de e-mail"
+                  isCopied ? lang.contactSection.copyButton.copied : lang.contactSection.copyButton.copyEmail
                 }
                 className="group flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-purple-50 transition-colors hover:bg-purple-100"
               >
                 <Image
                   src="/images/copy.svg"
-                  alt="Ícone de copiar e-mail"
+                  alt={lang.contactSection.emailIconAlt}
                   aria-hidden="true"
                   width={20}
                   height={20}
@@ -145,7 +147,7 @@ const ContactSection = () => {
                 {EMAIL}
               </a>
               <span aria-live="polite" aria-atomic="true" className="sr-only">
-                {isCopied ? "E-mail copiado para a área de transferência!" : ""}
+                {isCopied ? lang.contactSection.copyFeedback : ""}
               </span>
 
               {/* Animated feedback — inside the card, right side */}
@@ -160,7 +162,7 @@ const ContactSection = () => {
                     className="ml-auto shrink-0 rounded-full bg-purple-500 px-3 py-1 text-xs font-semibold text-white"
                     aria-hidden="true"
                   >
-                    Copiado ✓
+                    {lang.contactSection.copiedMessage}
                   </motion.span>
                 )}
               </AnimatePresence>
