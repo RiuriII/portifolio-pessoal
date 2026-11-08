@@ -16,9 +16,9 @@ const fadeUp = (delay = 0) => ({
 
 
 const HomeSection = () => {
-  
+
   const { lang } = useLanguage();
-  
+
   const SOCIAL_LINKS = [
     {
       href: "https://www.linkedin.com/in/riuri-alves-boneta/",
@@ -52,11 +52,10 @@ const HomeSection = () => {
         />
       </div>
 
-       <div
+      <div
         id="main-content"
         className="relative z-10 flex w-full items-center justify-between gap-12 px-8 max-[360px]:px-6 md:px-16 lg:px-24"
       >
-        {/* Coluna esquerda — texto */}
         <div className="flex flex-col items-start">
           <motion.div
             {...fadeUp(0.1)}
@@ -82,7 +81,7 @@ const HomeSection = () => {
             <span>
               {lang.home.hero.firstName}
               <span
-                className="ml-4 text-[clamp(3rem,8vw,7rem)] font-black uppercase leading-none text-purple-400"
+                className="block ml-4 sm:inline max-sm:ml-0  text-[clamp(3rem,8vw,7rem)] font-black uppercase leading-none text-purple-400"
                 aria-hidden="true"
               >
                 {lang.home.hero.lastName}
