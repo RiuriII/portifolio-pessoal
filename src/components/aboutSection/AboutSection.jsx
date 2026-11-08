@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import MaxWidthWrapper from "@/components/maxWidthWrapper/MaxWidthWrapper";
 
 import { fadeUp } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -45,7 +46,7 @@ const AboutSection = () => {
         <div className="bg-blue-100/40 absolute -left-32 bottom-0 h-[400px] w-[400px] rounded-full blur-3xl" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-5xl px-8 max-[360px]:px-6 md:px-16">
+      <MaxWidthWrapper className="relative z-10">
         <div className="grid items-center gap-16 md:grid-cols-2">
           {/* Left: text */}
           <div>
@@ -197,7 +198,7 @@ const AboutSection = () => {
             ))}
           </ul>
         </div>
-      </div>
+      </MaxWidthWrapper>
 
       {/* Bottom-right large text decoration */}
       <div

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import MaxWidthWrapper from "@/components/maxWidthWrapper/MaxWidthWrapper";
 
 // ✅ Fora do componente — não recria a cada render
 const SOCIALS = [
@@ -17,7 +18,7 @@ const Footer = () => {
         aria-hidden="true"
       />
 
-      <div className="mx-auto flex max-w-5xl flex-col items-center gap-6 p-6 md:px-16">
+      <MaxWidthWrapper className="flex flex-col items-center gap-6 px-6 py-6">
         <div className="flex w-full flex-wrap items-center justify-between gap-4 max-sm:flex-col max-sm:items-center">
           <small className="text-sm text-white/50">
             © {new Date().getFullYear()} —{" "}
@@ -48,7 +49,7 @@ const Footer = () => {
             </ul>
           </nav>
         </div>
-      </div>
+      </MaxWidthWrapper>
     </footer>
   );
 };

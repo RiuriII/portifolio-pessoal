@@ -1,8 +1,21 @@
 import { cn } from "@/lib/utils";
 
-const MaxWidthWrapper = ({ className, children }) => {
+const MaxWidthWrapper = ({
+  as: Component = "div",
+  className,
+  children,
+  ...props
+}) => {
   return (
-    <div className={cn("mx-auto h-full w-full", className)}>{children}</div>
+    <Component
+      className={cn(
+        "mx-auto w-full max-w-5xl px-8 max-[360px]:px-6 md:px-16",
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </Component>
   );
 };
 
