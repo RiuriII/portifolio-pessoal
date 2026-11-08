@@ -15,6 +15,7 @@ export function useActiveSection(ids) {
         entries.forEach((entry) => {
           if (entry.isIntersecting && entry.target.id !== activeRef.current) {
             activeRef.current = entry.target.id;
+            history.replaceState(null, "", `#${entry.target.id}`);
             setActive(entry.target.id);
           }
         });
