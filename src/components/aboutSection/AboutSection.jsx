@@ -19,19 +19,26 @@ const SKILLS = [
   { name: "Sass", icon: "/images/sass.svg" }
 ];
 
-
 const AboutSection = () => {
-  
   const { lang } = useLanguage();
 
   const INFO_ITEMS = [
-    { label: lang.about.infoItens.focus, value: lang.about.infoItens.focusValue },
-    { label: lang.about.infoItens.stack, value: lang.about.infoItens.stackValue },
+    {
+      label: lang.about.infoItens.focus,
+      value: lang.about.infoItens.focusValue
+    },
+    {
+      label: lang.about.infoItens.stack,
+      value: lang.about.infoItens.stackValue
+    },
     {
       label: lang.about.infoItens.differentials,
       value: lang.about.infoItens.differentialsValue
     },
-    { label: lang.about.infoItens.approach, value: lang.about.infoItens.approachValue }
+    {
+      label: lang.about.infoItens.approach,
+      value: lang.about.infoItens.approachValue
+    }
   ];
 
   return (
@@ -48,7 +55,6 @@ const AboutSection = () => {
 
       <MaxWidthWrapper className="relative z-10">
         <div className="grid items-center gap-16 md:grid-cols-2">
-          {/* Left: text */}
           <div>
             <motion.div
               {...fadeUp(0.1)}
@@ -89,20 +95,22 @@ const AboutSection = () => {
               {...fadeUp(0.4)}
               className="text-base leading-8 text-slate-600"
             >
-              {lang.about.paragraph1}{" "}
-              <span className="font-semibold text-slate-900">{lang.about.paragraph1Highlight1}</span> {lang.about.paragraph1Conjunction}{" "}
-              <span className="font-semibold text-slate-900">{lang.about.paragraph1Highlight2}</span>{lang.about.paragraph1End}
+              {lang.about.paragraph1Prefix}
+              <span className="font-semibold text-slate-900">
+                {lang.about.paragraph1Highlight}
+              </span>
+              {lang.about.paragraph1End}
             </motion.p>
 
             <motion.p
               {...fadeUp(0.5)}
               className="mt-4 text-base leading-8 text-slate-600"
             >
-              {lang.about.paragraph2}{" "}
-              <span className="font-semibold text-slate-900">{lang.about.paragraph2Highlight1}</span>,{" "}
-              <span className="font-semibold text-slate-900">{lang.about.paragraph2Highlight2}</span>
-              {lang.about.paragraph2Continue}{" "}
-              <span className="font-semibold text-slate-900">{lang.about.paragraph2Highlight3}</span>.
+              {lang.about.paragraph2Prefix}
+              <span className="font-semibold text-slate-900">
+                {lang.about.paragraph2Highlight}
+              </span>
+              {lang.about.paragraph2End}
             </motion.p>
           </div>
 
