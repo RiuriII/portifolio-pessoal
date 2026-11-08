@@ -1,10 +1,12 @@
+const siteUrl = "https://riuridev.com";
+const languages = {
+  "pt-BR": `${siteUrl}/pt`,
+  en: `${siteUrl}/en`
+};
+
 export default function sitemap() {
-  return [
-    {
-      url: 'https://riuridev.com',
-      lastModified: new Date('2026-03-10'),
-      changeFrequency: 'yearly',
-      priority: 1,
-    }
-  ]
+  return ["pt", "en"].map((lang) => ({
+    url: `${siteUrl}/${lang}`,
+    alternates: { languages }
+  }));
 }

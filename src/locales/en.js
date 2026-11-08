@@ -1,4 +1,24 @@
 export const en = {
+	metadata: {
+		title: "Riuri Dev — Web Developer",
+		description: "Portfolio of Riuri Boneta, a web developer specializing in React, Next.js, and Node.js.",
+		imageAlt: "Riuri Dev — Web Developer",
+		personDescription: "Web developer specializing in React, Next.js, and Node.js.",
+		jobTitle: "Web Developer"
+	},
+	languageSwitcher: {
+		label: "Language",
+		portuguese: "Português",
+		english: "English"
+	},
+	notFound: {
+		titleFirst: "Page",
+		titleSecond: "not found",
+		message: "It looks like you took a wrong turn. The page you are looking for does not exist.",
+		back: "Back to the homepage",
+		imageAlt: "Confused cat looking to the side, representing the missing page",
+		emojiLabel: "melting face"
+	},
 	home: {
 		hero: {
 			greeting: "Hi, I'm",

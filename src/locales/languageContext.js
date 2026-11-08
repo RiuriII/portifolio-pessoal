@@ -1,21 +1,14 @@
 "use client";
 
-import { createContext, useContext, useState, useCallback } from "react";
+import { createContext, useContext } from "react";
 import { locales } from "./index";
 
 
 const LanguageContext = createContext(null);
 
-export function LanguageProvider({ initialLang, children }) {
-  const [langCode, setLangCode] = useState(initialLang);
-
-  const setLanguage = useCallback((code) => {
-    setLangCode(code);
-    document.cookie = `language=${code}; path=/; max-age=31536000`;
-  }, []);
-
+export function LanguageProvider({ langCode, children }) {
   return (
-    <LanguageContext.Provider value={{ lang: locales[langCode], langCode, setLanguage }}>
+    <LanguageContext.Provider value={{ lang: locales[langCode], langCode }}>
       {children}
     </LanguageContext.Provider>
   );

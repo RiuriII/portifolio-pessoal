@@ -1,4 +1,24 @@
 export const pt = {
+	metadata: {
+		title: "Riuri Dev — Desenvolvedor web",
+		description: "Portfólio de Riuri Boneta, desenvolvedor web especializado em React, Next.js e Node.js.",
+		imageAlt: "Riuri Dev — Desenvolvedor Web",
+		personDescription: "Desenvolvedor web especializado em React, Next.js e Node.js.",
+		jobTitle: "Desenvolvedor Web"
+	},
+	languageSwitcher: {
+		label: "Idioma",
+		portuguese: "Português",
+		english: "English"
+	},
+	notFound: {
+		titleFirst: "Página",
+		titleSecond: "não encontrada",
+		message: "Parece que você se perdeu pelo caminho. A página que você está procurando não existe.",
+		back: "Voltar para a página inicial",
+		imageAlt: "Gato confuso olhando para o lado, representando a página não encontrada",
+		emojiLabel: "rosto derretendo"
+	},
 	home: {
 		hero: {
 			greeting: "Olá, eu sou",

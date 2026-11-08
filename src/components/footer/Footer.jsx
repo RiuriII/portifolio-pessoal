@@ -1,16 +1,16 @@
 import Link from "next/link";
 import MaxWidthWrapper from "@/components/maxWidthWrapper/MaxWidthWrapper";
 
-// ✅ Fora do componente — não recria a cada render
 const SOCIALS = [
   { label: "GitHub", href: "https://github.com/RiuriII" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/riuri-alves-boneta/" }
 ];
 
-const Footer = () => {
+const Footer = ({ langCode }) => {
+  const isEnglish = langCode === "en";
   return (
     <footer
-      aria-label="Rodapé do site"
+      aria-label={isEnglish ? "Site footer" : "Rodapé do site"}
       className="relative w-full overflow-hidden bg-blue"
     >
       <div
@@ -31,7 +31,7 @@ const Footer = () => {
             </span>
           </small>
 
-          <nav aria-label="Links sociais">
+          <nav aria-label={isEnglish ? "Social links" : "Links sociais"}>
             <ul role="list" className="flex gap-4">
               {SOCIALS.map((s) => (
                 <li key={s.label}>
@@ -39,7 +39,7 @@ const Footer = () => {
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`${s.label} (abre em nova aba)`}
+                    aria-label={`${s.label} (${isEnglish ? "opens in a new tab" : "abre em nova aba"})`}
                     className="focus-visible:ring-offset-blue-900 text-sm text-white/60 transition-colors hover:text-purple-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:ring-offset-2"
                   >
                     {s.label}

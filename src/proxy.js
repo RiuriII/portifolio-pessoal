@@ -1,20 +1,17 @@
-import {  NextResponse } from "next/server";
-
-const SUPPORTED = ["pt", "en"];
+import { NextResponse } from "next/server";
 
 export function proxy(request) {
-  const response = NextResponse.next();
+  if (request.nextUrl.pathname === "/") {
+    const url = request.nextUrl.clone();
+    url.pathname = "/pt";
+    return NextResponse.redirect(url, 308);
+  }
 
-  const cookieLang = request.cookies.get("language")?.value;
-  if (cookieLang && SUPPORTED.includes(cookieLang)) return response;
-
-  const acceptLanguage = request.headers.get("accept-language") ?? "";
-  const lang = acceptLanguage.toLowerCase().includes("pt") ? "pt" : "en";
-
-  response.cookies.set("language", lang, { path: "/", maxAge: 60 * 60 * 24 * 365 });
-  return response;
+  const headers = new Headers(request.headers);
+  headers.set("x-site-lang", request.nextUrl.pathname.split("/")[1]);
+  return NextResponse.next({ request: { headers } });
 }
 
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
+  matcher: ["/", "/pt/:path+", "/en/:path+"]
 };

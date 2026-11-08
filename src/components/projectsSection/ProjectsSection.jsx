@@ -4,7 +4,7 @@ import Reveal from "../reveal/Reveal";
 import Card from "./Card";
 
 import { cn } from "@/lib/utils";
-import { getServerLang } from "@/locales/getServerLang";
+import { locales } from "@/locales";
 
 async function getDownloads() {
   let downloads = null;
@@ -42,8 +42,8 @@ async function getDownloads() {
 }
 
 
-const ProjectsSection = async () => {
-  const lang = await getServerLang();
+const ProjectsSection = async ({ langCode = "pt" }) => {
+  const lang = locales[langCode];
 
   const PROJECTS_DATA = [
     {

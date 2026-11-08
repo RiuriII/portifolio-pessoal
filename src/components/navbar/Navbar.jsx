@@ -8,7 +8,7 @@ import { useLanguage } from "@/locales/languageContext";
 
 
 const Navbar = () => {
-  const { lang } = useLanguage();
+  const { lang, langCode } = useLanguage();
 
   const LINKS = [
     { name: lang.navbar.links.home, url: "home" },
@@ -100,7 +100,7 @@ const Navbar = () => {
 
         {/* Desktop links */}
         <ul
-          className="hidden space-x-6 md:flex"
+          className="ml-auto hidden space-x-6 md:flex"
           aria-label={lang.navbar.linksAriaLabel}
         >
           {LINKS.map((link, index) => (
@@ -125,6 +125,30 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
+        <div
+          role="group"
+          aria-label={lang.languageSwitcher.label}
+          className="ml-5 hidden items-center gap-1 rounded-full border border-white/20 p-1 md:flex"
+        >
+          {[
+            { code: "pt", label: lang.languageSwitcher.portuguese },
+            { code: "en", label: lang.languageSwitcher.english }
+          ].map(({ code, label }) => (
+            <Link
+              key={code}
+              href={`/${code}#${activeLink}`}
+              hrefLang={code === "pt" ? "pt-BR" : "en"}
+              lang={code === "pt" ? "pt-BR" : "en"}
+              aria-label={label}
+              aria-current={langCode === code ? "page" : undefined}
+              className={`rounded-full px-2.5 py-1.5 text-xs font-bold focus-visible:outline focus-visible:outline-2 focus-visible:outline-purple-400 ${
+                langCode === code ? "bg-purple-500 text-white" : "text-white/70 hover:text-white"
+              }`}
+            >
+              {code.toUpperCase()}
+            </Link>
+          ))}
+        </div>
       </nav>
 
       {/* Mobile menu */}
@@ -181,6 +205,31 @@ const Navbar = () => {
                 </motion.li>
               ))}
             </ul>
+            <div
+              role="group"
+              aria-label={lang.languageSwitcher.label}
+              className="mx-4 mt-6 flex gap-3 border-t border-white/15 pt-6"
+            >
+              {[
+                { code: "pt", label: lang.languageSwitcher.portuguese },
+                { code: "en", label: lang.languageSwitcher.english }
+              ].map(({ code, label }) => (
+                <Link
+                  key={code}
+                  href={`/${code}#${activeLink}`}
+                  hrefLang={code === "pt" ? "pt-BR" : "en"}
+                  lang={code === "pt" ? "pt-BR" : "en"}
+                  aria-current={langCode === code ? "page" : undefined}
+                  className={`rounded-full border px-4 py-2 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-purple-400 ${
+                    langCode === code
+                      ? "border-purple-400 bg-purple-500 text-white"
+                      : "border-white/20 text-white/80"
+                  }`}
+                >
+                  {label}
+                </Link>
+              ))}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
