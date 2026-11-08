@@ -91,6 +91,36 @@ export const en = {
 			titleHighlight: ".",
 		}
 	},
+	projectSketch: {
+	  "intro": "Ideas and code: pick a disk to explore.",
+	  "marketplaceInstalls": "Marketplace installs",
+	  "dockerPulls": "Docker Hub pulls",
+	  "open": "Open project",
+	  "details": "Project details — scroll to read more",
+	  "stack": "Technologies used",
+	  "newTab": "opens in a new tab",
+	  "eject": "Eject",
+	  "switchProject": "Switch project",
+	  "closeHint": "Click outside the monitor or press Esc to eject.",
+	  "projects": {
+	    "sqlVisualizer": {
+	      "why": "Understanding a database just by reading SQL can be difficult. I built SQL Visualizer to make the data structure visible right inside the editor.",
+	      "problem": "Turns SQL files into SVG diagrams showing tables, keys, and relationships, making schemas easier to understand during development."
+	    },
+	    "atlasLibrary": {
+	      "why": "A library needs to connect its collection with people and lending rules. Atlas Library brings these operations together in an API.",
+	      "problem": "Handles lending, reservations, fines, and notifications, with business rules and structured data to support library management."
+	    },
+	    "ignition": {
+	      "why": "I created IGNITION to explore how 3D elements can contribute to a product presentation on the web.",
+	      "problem": "Combines a landing page with interactive 3D elements, letting visitors explore the product presentation through a more immersive experience."
+	    },
+	    "miaw": {
+	      "why": "Miaw Café is an art direction and development exercise that gives a café a distinctive digital presence.",
+	      "problem": "Presents the space and its concept on a responsive page, with visual hierarchy, typography, and composition that help visitors explore its content."
+	    }
+	  }
+	},
 	projectsSection: {
 		projects: {
 			sqlVisualizer: {

@@ -91,6 +91,36 @@ export const pt = {
 			titleHighlight: ".",
 		}
 	},
+	projectSketch: {
+	  "intro": "Ideias e códigos: escolha um disquete para explorar.",
+	  "marketplaceInstalls": "instalações no Marketplace",
+	  "dockerPulls": "pulls no Docker Hub",
+	  "open": "Abrir projeto",
+	  "details": "Detalhes do projeto — role para ler mais",
+	  "stack": "Tecnologias utilizadas",
+	  "newTab": "abre em nova aba",
+	  "eject": "Ejetar",
+	  "switchProject": "Trocar de projeto",
+	  "closeHint": "Clique fora do monitor ou pressione Esc para ejetar.",
+	  "projects": {
+	    "sqlVisualizer": {
+	      "why": "Entender um banco de dados apenas lendo SQL pode ser trabalhoso. Criei o SQL Visualizer para tornar a estrutura dos dados visível dentro do próprio editor.",
+	      "problem": "Transforma arquivos SQL em diagramas SVG com tabelas, chaves e relações, facilitando a compreensão do esquema durante o desenvolvimento."
+	    },
+	    "atlasLibrary": {
+	      "why": "Uma biblioteca precisa conectar o acervo às pessoas e às regras de circulação. O Atlas Library nasceu para organizar essas operações em uma API.",
+	      "problem": "Reúne empréstimos, reservas, multas e notificações, com regras de negócio e dados estruturados para apoiar a gestão da biblioteca."
+	    },
+	    "ignition": {
+	      "why": "Criei o IGNITION para explorar como elementos 3D podem participar da apresentação de um produto na web.",
+	      "problem": "Combina uma landing page com elementos interativos em 3D, permitindo explorar a apresentação visual do produto em uma experiência mais imersiva."
+	    },
+	    "miaw": {
+	      "why": "O Miaw Café é um exercício de direção de arte e desenvolvimento para dar personalidade à presença digital de uma cafeteria.",
+	      "problem": "Organiza a apresentação do espaço e de sua proposta em uma página responsiva, com hierarquia visual, tipografia e composição que ajudam a explorar o conteúdo."
+	    }
+	  }
+	},
 	projectsSection: {
 		projects: {
 			sqlVisualizer: {
